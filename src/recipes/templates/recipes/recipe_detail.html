@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-
+    <title>{{ recipe.name }}</title>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Recipe App</h1>
+        <h1>{{ recipe.name }}</h1>
     </header>
 
     <nav>
@@ -19,11 +18,13 @@
     </nav>
 
     <main>
-        <p>This is where you will become a master of recipes.</p>
-
-
+        <h2>Recipe Details</h2>
+        <p>{{recipe.name }} </p>
+        <img src="{{ recipe.pic.url }}" width="150" height="200" />
+        <p>Ingredients: {{ recipe.ingredients }}</p>
+        <p>Cooking Time: {{ recipe.cooking_time }}</p>
+        <p>Difficulty: {{ recipe.difficulty }}</p>
     </main>
-
 
 </body>
 </html>
