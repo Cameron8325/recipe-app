@@ -16,13 +16,27 @@ header, nav, footer {
   padding: 10px 20px;
 }
 
+.header-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+}
+
 nav ul {
   list-style: none;
+
+  :first-child {
+    margin-right: 10px;
+  }
 }
 
 nav ul li {
   display: inline-block;
-  margin-right: 20px;
 }
 
 main {
@@ -46,10 +60,19 @@ main {
   border-radius: 5px;
   overflow: hidden;
 }
+.recipe-card a {
+  text-decoration: none; /* Remove underline */
+  color: #333; /* Change link color */
+}
+
+.recipe-card a:hover {
+  color: #555; /* Change link color on hover */
+}
+
 
 .recipe-card img {
   width: 100%;
-  height: auto;
+  height: 300px;
 }
 
 .recipe-card h2 {
@@ -80,4 +103,8 @@ main {
 
 .arrow:hover {
   background-color: #555;
+}
+
+footer {
+clear: both;
 }

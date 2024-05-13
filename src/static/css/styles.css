@@ -8,6 +8,10 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Make the body a column layout */
+  min-height: 100vh; /* Ensure body expands to at least the height of the viewport */
+  position: relative;
 }
 
 header, nav, footer {
@@ -41,11 +45,13 @@ nav ul li {
 
 main {
   padding: 20px;
+  flex-grow: 1; /* Allow main content to grow and occupy remaining space */
 }
 
 /* Welcome Page */
 .about-app {
   margin: 20px;
+  flex-grow: 1;
 }
 
 /* Recipe List Page */
@@ -106,5 +112,8 @@ main {
 }
 
 footer {
-clear: both;
+  margin-top: auto; /* Push footer to the bottom */
+  display: flex;
+  justify-content: center;
 }
+
