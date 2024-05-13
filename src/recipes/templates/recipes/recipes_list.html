@@ -1,36 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes List</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
-        <h1>Recipes List</h1>
-    </header>
+        <div class="header-container">
+                <h1>Recipify</h1>
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'recipes:home' %}">Home</a></li>
+                        <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-    <nav>
-        <ul>
-            <li><a href="{% url 'recipes:home' %}">Home</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <h2>Recipes</h2>
-        <table border="1" cellpadding="5" cellspacing="5">
-            <tr>
-                <td>Recipe Titles</td>
-                <td>Recipe Images</td>
-            </tr>
-            {% for recipe in recipes %}
-            <tr>
-                <td><a href="{% url 'recipes:recipe_detail' recipe.id %}">{{ recipe.name }}</a></td>
-                <td><img src="{{ recipe.pic.url }}" width="150" height="200" /></td>
-            </tr>
-            {% endfor %}
-        </table>
+    <main class="recipe-grid">
+        {% for recipe in recipes %}
+        <div class="recipe-card">
+            <a href="{% url 'recipes:recipe_detail' recipe.id %}">
+                <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }}">
+                <h2>{{ recipe.name }}</h2>
+            </a>
+        </div>
+        {% endfor %}
     </main>
 
+    <footer>
+        <p>&copy; 2024 My Recipe App</p>
+    </footer>
 </body>
 </html>

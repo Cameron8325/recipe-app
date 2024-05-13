@@ -1,29 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-
+    <title>Welcome to My Recipe App</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Recipe App</h1>
+    <div class="header-container">
+            <h1>Recipify</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'recipes:home' %}">Home</a></li>
+                    <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="{% url 'recipes:home' %}">Home</a></li>
-            <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
-        </ul>
-    </nav>
+    <section class="about-app">
+        <h2>About</h2>
+        <p>This is where you will become a master of recipes. Browse through our collection of delicious recipes, learn new cooking techniques, and unleash your culinary creativity!</p>
+    </section>
 
-    <main>
-        <p>This is where you will become a master of recipes.</p>
-
-
-    </main>
-
-
+    <footer>
+        <p>&copy; 2024 My Recipe App</p>
+    </footer>
 </body>
 </html>
