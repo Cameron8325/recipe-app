@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.urls import reverse
 from .models import Recipe
 
 class RecipeModelTest(TestCase):
@@ -30,3 +31,17 @@ class RecipeModelTest(TestCase):
         self.recipe.delete()
         with self.assertRaises(Recipe.DoesNotExist):
             Recipe.objects.get(id=recipe_id)
+
+    def test_recipes_list_view(self):
+        response = self.client.get(reverse('recipes:recipes_list'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, self.recipe.name)
+
+    def test_recipe_detail_view(self):
+        response = self.client.get(reverse('recipes:recipe_detail', args=[self.recipe.id]))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, self.recipe.name)
+        self.assertContains(response, self.recipe.description)
+        self.assertContains(response, self.recipe.ingredients)
+        self.assertContains(response, self.recipe.cooking_time)
+        self.assertContains(response, self.recipe.difficulty)
