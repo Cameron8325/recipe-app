@@ -52,6 +52,18 @@ main {
 .about-app {
   margin: 20px;
   flex-grow: 1;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    }
+}
+
+.about-content {
+  margin-bottom: 20px; /* Add margin at the bottom of the about content */
 }
 
 /* Recipe List Page */

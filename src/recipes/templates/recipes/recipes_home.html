@@ -20,17 +20,36 @@
       </div>
     </header>
 
-    <section class="about-app">
-      <h2>About</h2>
-      <p>
-        This is where you will become a master of recipes. Browse through our
-        collection of delicious recipes, learn new cooking techniques, and
-        unleash your culinary creativity!
-      </p>
-    </section>
-
+    <main class="about-app">
+      <div class="about-content">
+        <h1>Welcome to Recipify!</h1>
+        <p>
+          Welcome to Recipify, your ultimate destination for delicious recipes and culinary inspiration!
+          Whether you're a seasoned chef or just starting your cooking journey, we've got something for everyone.
+          Explore our vast collection of mouthwatering recipes, from quick and easy weekday meals to gourmet weekend
+          delights. With step-by-step instructions, helpful tips, and stunning visuals, you'll be cooking like a pro
+          in no time!
+        </p>
+      </div>
+      
+      <!-- Featured Recipes Section -->
+      <h2>Featured Recipes</h2>
+      <section class="featured-recipes">
+        <div class="recipe-grid">
+          {% for recipe in featured_recipes %}
+          <div class="recipe-card">
+            <a href="{% url 'recipes:recipe_detail' recipe.id %}">
+              <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }}" />
+              <h2>{{ recipe.name }}</h2>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+      
     <footer>
       <p>Recipify, a Django app.</p>
     </footer>
   </body>
-</html>
+  </html>

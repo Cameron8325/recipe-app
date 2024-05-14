@@ -20,16 +20,19 @@
       </div>
     </header>
 
+    <div class="recipe-container">
     <main class="recipe-grid">
       {% for recipe in recipes %}
-      <div class="recipe-card">
-        <a href="{% url 'recipes:recipe_detail' recipe.id %}">
-          <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }}" />
-          <h2>{{ recipe.name }}</h2>
-        </a>
-      </div>
-      {% endfor %}
-    </main>
+        <div class="recipe-card">
+          <a href="{% url 'recipes:recipe_detail' recipe.id %}">
+            <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }}" />
+            <h2>{{ recipe.name }}</h2>
+          </a>
+        </div>
+        {% endfor %}
+      </main>
+    </div>
+    
 
     <footer>
       <p>Recipify, a Django app.</p>

@@ -3,7 +3,8 @@ from django.views.generic import ListView
 from .models import Recipe
 
 def home(request):
-    return render(request, 'recipes/recipes_home.html')
+    featured_recipes = Recipe.objects.order_by('?')[:3]
+    return render(request, 'recipes/recipes_home.html', {'featured_recipes': featured_recipes})
 
 class RecipeListView(ListView):
     model = Recipe

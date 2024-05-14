@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Recipe(models.Model):
     name = models.CharField(max_length=50)
+    description = models.CharField(max_length=255, default='No description avaialble.')
     ingredients = models.CharField(max_length=255)
     cooking_time = models.IntegerField()
     difficulty = models.CharField(max_length=20)
