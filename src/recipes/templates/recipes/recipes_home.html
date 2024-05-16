@@ -15,7 +15,7 @@
           <ul>
             <li><a href="{% url 'recipes:home' %}">Home</a></li>
             <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
-            <li><a href ="{%url 'login' %}"> Login </a></li>
+            <li><a href="{%url 'login' %}"> Login </a></li>
           </ul>
         </nav>
       </div>
@@ -25,14 +25,32 @@
       <div class="about-content">
         <h1>Welcome to Recipify!</h1>
         <p>
-          Welcome to Recipify, your ultimate destination for delicious recipes and culinary inspiration!
-          Whether you're a seasoned chef or just starting your cooking journey, we've got something for everyone.
-          Explore our vast collection of mouthwatering recipes, from quick and easy weekday meals to gourmet weekend
-          delights. With step-by-step instructions, helpful tips, and stunning visuals, you'll be cooking like a pro
-          in no time!
+          Welcome to Recipify, your ultimate destination for delicious recipes
+          and culinary inspiration! Whether you're a seasoned chef or just
+          starting your cooking journey, we've got something for everyone.
+          Explore our vast collection of mouthwatering recipes, from quick and
+          easy weekday meals to gourmet weekend delights. With step-by-step
+          instructions, helpful tips, and stunning visuals, you'll be cooking
+          like a pro in no time!
         </p>
       </div>
-      
+
+      <form method="GET" action="{% url 'recipes:search_results' %}">
+        {% csrf_token %}
+        <label for="id_query">Search recipes:</label>
+        <input type="text" name="query" id="id_query" placeholder="Search recipes...">
+        <label for="id_cooking_time">Cooking time (minutes):</label>
+        <input type="number" name="cooking_time" id="id_cooking_time" placeholder="Cooking time (minutes)">
+        <label for="id_difficulty">Difficulty:</label>
+        <select name="difficulty" id="id_difficulty">
+            <option value="" selected disabled>Select difficulty</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+
       <!-- Featured Recipes Section -->
       <h2>Featured Recipes</h2>
       <section class="featured-recipes">
@@ -48,9 +66,9 @@
         </div>
       </section>
     </main>
-      
+
     <footer>
       <p>Recipify, a Django app.</p>
     </footer>
   </body>
-  </html>
+</html>
