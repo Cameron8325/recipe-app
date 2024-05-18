@@ -166,4 +166,4 @@ cython_debug/
 *.sqlite3
 
 #Sensitive stuff
-settings.py
+src/recipe_project/settings.py
