@@ -5,6 +5,9 @@ from django.shortcuts import redirect
 from django.contrib.auth import logout
 
 
+def root_redirect(request):
+    return redirect('recipes:welcome')
+
 def logout_view(request):
     logout(request)
     return render(request, "success.html")

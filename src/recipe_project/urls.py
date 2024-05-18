@@ -18,13 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import login_view, logout_view
+from .views import login_view, logout_view, root_redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', include('recipes.urls')),
+    path('', root_redirect),  # Redirect root to welcome
+    path('recipes/', include('recipes.urls')),  # Include recipes app URLs
     path('login/', login_view, name='login'),
-    path('logout/', logout_view, name='logout')
+    path('logout/', logout_view, name='logout'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

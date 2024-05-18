@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Recipify</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Recipify</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'recipes:home' %}">Home</a></li>
+                    <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Welcome to Recipify!</h1>
+        <p>Welcome to Recipify, your ultimate destination for delicious recipes and culinary inspiration!</p>
+        <a href="{% url 'login' %}"><button>Login</button></a>
+    </main>
+
+    <footer>
+        <p>Recipify, a Django app.</p>
+    </footer>
+</body>
+</html>
