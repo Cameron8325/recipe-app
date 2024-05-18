@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Recipify</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
 </head>
 <body>
     <header>
@@ -21,9 +22,11 @@
     </header>
 
     <main>
-        <h1>Welcome to Recipify!</h1>
-        <p>Welcome to Recipify, your ultimate destination for delicious recipes and culinary inspiration!</p>
-        <a href="{% url 'login' %}"><button>Login</button></a>
+        <div class="welcome-content">
+            <h1>Welcome to Recipify!</h1>
+            <p>Welcome to Recipify, your ultimate destination for delicious recipes and culinary inspiration!</p>
+            <a href="{% url 'login' %}" class="login-btn">Login</a>
+        </div>
     </main>
 
     <footer>

@@ -1,74 +1,85 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to My Recipe App</title>
+    <title>Welcome to Recipify</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-  </head>
-  <body>
-    <header>
-      <div class="header-container">
+    <link rel="stylesheet" href="{% static 'css/recipes_home.css' %}" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
         <h1>Recipify</h1>
         <nav>
-          <ul>
-            <li><a href="{% url 'recipes:home' %}">Home</a></li>
-            <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
-            <li><a href="{%url 'logout' %}"> Logout </a></li>
-          </ul>
+            <ul>
+                <li><a href="{% url 'recipes:home' %}">Home</a></li>
+                <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Search</a>
+                    <div class="dropdown-content">
+                        <form method="GET" action="{% url 'recipes:search_results' %}">
+                            {% csrf_token %}
+                            <div class="search-container">
+                                <label for="id_query">Search recipes:</label>
+                                <input type="text" name="query" id="id_query" placeholder="Search recipes...">
+                            </div>
+                            <div class="search-container">
+                                <label for="id_cooking_time">Cooking time (minutes):</label>
+                                <input type="number" name="cooking_time" id="id_cooking_time" placeholder="Cooking time (minutes)">
+                            </div>
+                            <div class="search-container">
+                                <label for="id_difficulty">Difficulty:</label>
+                                <select name="difficulty" id="id_difficulty">
+                                    <option value="" selected disabled>Select difficulty</option>
+                                    <option value="Easy">Easy</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Hard">Hard</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="search-btn">Search</button>
+                        </form>
+                    </div>
+                </li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
         </nav>
-      </div>
-    </header>
+    </div>
+</header>
 
     <main class="about-app">
-      <div class="about-content">
-        <h1>Welcome to Recipify!</h1>
-        <p>
-          Welcome to Recipify, your ultimate destination for delicious recipes
-          and culinary inspiration! Whether you're a seasoned chef or just
-          starting your cooking journey, we've got something for everyone.
-          Explore our vast collection of mouthwatering recipes, from quick and
-          easy weekday meals to gourmet weekend delights. With step-by-step
-          instructions, helpful tips, and stunning visuals, you'll be cooking
-          like a pro in no time!
-        </p>
-      </div>
-
-      <form method="GET" action="{% url 'recipes:search_results' %}">
-        {% csrf_token %}
-        <label for="id_query">Search recipes:</label>
-        <input type="text" name="query" id="id_query" placeholder="Search recipes...">
-        <label for="id_cooking_time">Cooking time (minutes):</label>
-        <input type="number" name="cooking_time" id="id_cooking_time" placeholder="Cooking time (minutes)">
-        <label for="id_difficulty">Difficulty:</label>
-        <select name="difficulty" id="id_difficulty">
-            <option value="" selected disabled>Select difficulty</option>
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
-        </select>
-        <button type="submit">Search</button>
-    </form>
-
-      <!-- Featured Recipes Section -->
-      <h2>Featured Recipes</h2>
-      <section class="featured-recipes">
-        <div class="recipe-grid">
-          {% for recipe in featured_recipes %}
-          <div class="recipe-card">
-            <a href="{% url 'recipes:recipe_detail' recipe.id %}">
-              <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }}" />
-              <h2>{{ recipe.name }}</h2>
-            </a>
-          </div>
-          {% endfor %}
+        <div class="about-content">
+            <h1>Welcome to Recipify!</h1>
+            <p>
+                Welcome to Recipify, your ultimate destination for delicious recipes
+                and culinary inspiration! Whether you're a seasoned chef or just
+                starting your cooking journey, we've got something for everyone.
+                Explore our vast collection of mouthwatering recipes, from quick and
+                easy weekday meals to gourmet weekend delights. With step-by-step
+                instructions, helpful tips, and stunning visuals, you'll be cooking
+                like a pro in no time!
+            </p>
         </div>
-      </section>
+
+        <!-- Featured Recipes Section -->
+        <h2>Featured Recipes</h2>
+        <section class="featured-recipes">
+            <div class="recipe-grid">
+                {% for recipe in featured_recipes %}
+                <div class="recipe-card">
+                    <a href="{% url 'recipes:recipe_detail' recipe.id %}">
+                        <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }}" />
+                        <h3>{{ recipe.name }}</h3>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
     </main>
 
     <footer>
-      <p>Recipify, a Django app.</p>
+        <p>Recipify, a Django app.</p>
     </footer>
-  </body>
+</body>
 </html>

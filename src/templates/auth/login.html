@@ -1,27 +1,39 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Recipify</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-  <h1>Login</h1>
+    <header>
+        <div class="header-container">
+            <h1>Recipify</h1>
+        </div>
+    </header>
 
+    <main>
+        <div class="login-container">
+            <h1>Login</h1>
+            
+            {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+            {% endif %}
+            
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
 
-{% if error_message %}
-   {{error_message}}
-{% endif %}
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+        </div>
+    </main>
 
-<form action="" method="POST" >
-   
-   {% csrf_token %}   
-
-   
-   {{form}}           
-
-  
-   <button type="submit" >Login</button>
-</form>
+    <footer>
+        <p>Recipify, a Django app.</p>
+    </footer>
 </body>
 </html>
