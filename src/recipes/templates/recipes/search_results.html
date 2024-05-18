@@ -1,64 +1,61 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
     <header>
-      <div class="header-container">
-        <h1>Recipify</h1>
-        <nav>
-          <ul>
-            <li><a href="{% url 'recipes:home' %}">Home</a></li>
-            <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
-            <li><a href="{%url 'logout' %}"> Logout </a></li>
-          </ul>
-        </nav>
-      </div>
+        <div class="header-container">
+            <h1>Recipify</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'recipes:home' %}">Home</a></li>
+                    <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
+                    <li><a href="{%url 'logout' %}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <h1>Search Results</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Ingredients</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for recipe in search_results %}
-        <tr>
-          <td>
-            <a href="{% url 'recipes:recipe_detail' recipe.id %}"
-              >{{ recipe.name }}</a
-            >
-          </td>
-          <td>{{ recipe.description }}</td>
-          <td>{{ recipe.ingredients }}</td>
-        </tr>
-        {% empty %}
-        <tr>
-          <td colspan="5">No recipes found.</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <main>
+        <div class="content-container">
+            <h1>Search Results</h1>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Ingredients</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for recipe in search_results %}
+                    <tr>
+                        <td><a href="{% url 'recipes:recipe_detail' recipe.id %}">{{ recipe.name }}</a></td>
+                        <td>{{ recipe.description }}</td>
+                        <td>{{ recipe.ingredients }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">No recipes found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 
-
-<!-- Display pie chart -->
-<img src="data:image/png;base64,{{ pie_chart_base64 }}" alt="Pie Chart of Difficulty Levels">
-
-<!-- Display bar chart -->
-<img src="data:image/png;base64,{{ bar_chart_base64 }}" alt="Bar Chart of Most Popular Ingredients">
-
+            <div class="chart-container">
+                <img src="data:image/png;base64,{{ pie_chart_base64 }}" alt="Pie Chart of Difficulty Levels">
+                <img src="data:image/png;base64,{{ bar_chart_base64 }}" alt="Bar Chart of Most Popular Ingredients">
+            </div>
+        </div>
+    </main>
 
     <footer>
-      <p>Recipify, a Django app.</p>
+        <p>Recipify, a Django app.</p>
     </footer>
-  </body>
+</body>
 </html>

@@ -6,47 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Recipify</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/recipes_home.css' %}" />
 </head>
 <body>
-  <header>
-    <div class="header-container">
-        <h1>Recipify</h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'recipes:home' %}">Home</a></li>
-                <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Search</a>
-                    <div class="dropdown-content">
-                        <form method="GET" action="{% url 'recipes:search_results' %}">
-                            {% csrf_token %}
-                            <div class="search-container">
-                                <label for="id_query">Search recipes:</label>
-                                <input type="text" name="query" id="id_query" placeholder="Search recipes...">
-                            </div>
-                            <div class="search-container">
-                                <label for="id_cooking_time">Cooking time (minutes):</label>
-                                <input type="number" name="cooking_time" id="id_cooking_time" placeholder="Cooking time (minutes)">
-                            </div>
-                            <div class="search-container">
-                                <label for="id_difficulty">Difficulty:</label>
-                                <select name="difficulty" id="id_difficulty">
-                                    <option value="" selected disabled>Select difficulty</option>
-                                    <option value="Easy">Easy</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="Hard">Hard</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="search-btn">Search</button>
-                        </form>
-                    </div>
-                </li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-            </ul>
-        </nav>
+    <header>
+        <div class="header-container">
+            <h1>Recipify</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'recipes:home' %}">Home</a></li>
+                    <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <form method="GET" action="{% url 'recipes:search_results' %}">
+            {% csrf_token %}
+            <input type="text" name="query" id="id_query" placeholder="Search recipes...">
+            <input type="number" name="cooking_time" id="id_cooking_time" placeholder="Cooking time (minutes)">
+            <select name="difficulty" id="id_difficulty">
+                <option value="" selected disabled>Select difficulty</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+            <button type="submit" class="search-btn">Search</button>
+        </form>
     </div>
-</header>
 
     <main class="about-app">
         <div class="about-content">

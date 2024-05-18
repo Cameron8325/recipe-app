@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,17 +10,20 @@
 <body>
     <header>
         <div class="header-container">
-          <h1>Recipify</h1>
+            <h1>Recipify</h1>
         </div>
-      </header>
+    </header>
 
-    <h1>You've successfully logged out!</h1>
-    <p>Thank you for using our recipe app. We hope to see you again soon!</p>
-    <a href="{% url 'recipes:welcome' %}">Return to Home</a>
-
+    <main>
+        <div class="content-container">
+            <h1>You've successfully logged out!</h1>
+            <p>Thank you for using our recipe app. We hope to see you again soon!</p>
+            <a href="{% url 'recipes:welcome' %}" class="login-btn">Return to Home</a>
+        </div>
+    </main>
 
     <footer>
         <p>Recipify, a Django app.</p>
-      </footer>
+    </footer>
 </body>
 </html>
