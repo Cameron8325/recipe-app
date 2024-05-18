@@ -167,3 +167,4 @@ cython_debug/
 
 #Sensitive stuff
 src/recipe_project/settings.py
+"src/recipe_project/settings.py" 
