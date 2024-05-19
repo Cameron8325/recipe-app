@@ -8,8 +8,9 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -17,9 +18,9 @@ body {
 }
 
 header, nav, footer {
-  background-color: #333;
+  background-color: #343a40;
   color: #fff;
-  padding: 10px 20px;
+  padding: 20px 40px;
 }
 
 .header-container {
@@ -28,9 +29,17 @@ header, nav, footer {
   align-items: center;
 }
 
-nav {
-  display: flex;
-  align-items: center;
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 nav ul {
@@ -40,107 +49,102 @@ nav ul {
 }
 
 nav ul li {
-  margin-right: 20px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.search-bar-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.toggle-search-btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.toggle-search-btn:hover {
-  background-color: #45a049;
-}
-
-.search-bar {
-  display: none;
-  background-color: #f9f9f9;
-  padding: 10px 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-.search-form {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-}
-
-.search-form input[type="text"],
-.search-form input[type="number"],
-.search-form select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.search-form .search-btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.search-form .search-btn:hover {
-  background-color: #45a049;
+  margin-right: 30px;
 }
 
 main {
-  padding: 20px;
+  padding: 40px 20px;
   flex-grow: 1;
 }
 
-.about-app {
-  margin: 20px;
-}
-
-.about-content {
-  text-align: center;
-  padding: 50px 20px;
-  background-color: #f2f2f2;
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
   border-radius: 10px;
-  margin: 50px auto;
-  max-width: 600px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.about-content h1 {
-  color: #333;
+.content-container h1 {
+  font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.results-table th,
+.results-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.results-table th {
+  background-color: #343a40;
+  color: white;
+}
+
+.results-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.results-table tr:hover {
+  background-color: #ddd;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.chart-container img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px;
+}
+
+.about-content {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: 50px auto;
+  max-width: 800px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
 .about-content p {
-  color: #666;
+  color: #6c757d;
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 30px;
 }
 
+/* Featured Recipes */
 .featured-recipes {
   margin: 40px auto;
   text-align: center;
+}
+
+.featured-recipes h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #343a40;
 }
 
 .featured-recipes .recipe-grid {
@@ -150,7 +154,7 @@ main {
 }
 
 .featured-recipes .recipe-card {
-  border: 1px solid #ccc;
+  border: 1px solid #dee2e6;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -164,7 +168,7 @@ main {
 .featured-recipes .recipe-card a {
   display: block;
   text-decoration: none;
-  color: #333;
+  color: #343a40;
 }
 
 .featured-recipes .recipe-card img {
@@ -179,14 +183,89 @@ main {
   margin: 0;
 }
 
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
-  position: absolute;
-  bottom: 0;
+/* Recipe List Page */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.recipe-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+}
+
+.recipe-card a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+.recipe-card img {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.recipe-card h3 {
+  padding: 10px;
+  text-align: center;
+  margin: 0;
+}
+
+/* Recipe Details Page */
+.recipe-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+.recipe-info {
+  flex-grow: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.recipe-info img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.recipe-info h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.recipe-info p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.arrow {
+  cursor: pointer;
+  font-size: 30px;
+  line-height: 50px;
+  width: 50px;
+  text-align: center;
+}
+
+.arrow:hover {
+  background-color: #555;
 }
 
 /* Login Page */
@@ -241,4 +320,149 @@ form button.login-btn {
 
 form button.login-btn:hover {
   background-color: #45a049;
+}
+
+/* Welcome Content */
+.welcome-content {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  margin: 50px auto;
+  max-width: 600px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-content h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.welcome-content p {
+  color: #666;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.login-btn {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #45a049;
+}
+
+/* Search Form Styles */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-container form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  align-items: center;
+}
+
+.search-container .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-container .search-input,
+.search-container .search-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.search-container .search-input:focus,
+.search-container .search-select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.search-container .search-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  align-self: stretch;
+}
+
+.search-container .search-btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Success Page */
+.content-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.content-container h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.content-container p {
+  font-size: 1.2rem;
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.login-btn {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #45a049;
+}
+
+/* Footer */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
