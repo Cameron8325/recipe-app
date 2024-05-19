@@ -149,3 +149,7 @@ def add_recipe(request):
         form = RecipeForm()
 
     return render(request, 'recipes/add_recipe.html', {'form': form})
+
+@login_required
+def about(request):
+    return render(request, 'recipes/about.html')

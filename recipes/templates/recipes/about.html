@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - Cameron Smith</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1>Recipify</h1>
+        <nav>
+          <ul>
+            <li><a href="{% url 'recipes:home' %}">Home</a></li>
+            <li><a href="{% url 'recipes:about' %}">About</a></li>
+            <li><a href="{% url 'recipes:recipes_list' %}">Recipes</a></li>
+            <li><a href="{% url 'recipes:add_recipe' %}">Create</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="about-me">
+      <h2>About Me</h2>
+      <p>
+        Hi there! I'm Cameron Smith, a full stack web developer who finds joy in
+        crafting robust and interactive web applications. My journey into web
+        development began in school, where I developed a passion for coding and
+        solving complex problems. I have honed my skills in both front-end and
+        back-end development, mastering languages such as HTML, CSS, JavaScript,
+        and Python.
+      </p>
+      <p>
+        I am proficient in various frameworks and libraries, including React,
+        Node.js, and Django. These tools have enabled me to build dynamic and
+        responsive applications. I am a continuous learner, always eager to stay
+        abreast of the latest technologies and trends in the web development
+        world. Tackling new challenges and working on innovative projects
+        excites me.
+      </p>
+      <p>
+        When I’m not coding, I enjoy exploring topics related to space,
+        indulging in video games, and listening to music. Balancing work and
+        personal life is important to me, as it helps maintain my creativity and
+        productivity. I am enthusiastic about bringing my skills and passion for
+        web development to collaborative projects. Let's connect and create
+        something remarkable together!
+      </p>
+      <p>
+        <strong>Portfolio:</strong>
+        <a
+          href="https://cameron8325.github.io/portfolio-website/"
+          target="_blank"
+          >View my portfolio</a
+        ><br />
+        <strong>LinkedIn:</strong>
+        <a
+          href="https://www.linkedin.com/in/michael-smith-4b0252141/"
+          target="_blank"
+          >Connect with me on LinkedIn</a
+        >
+      </p>
+    </main>
+
+    <footer>
+      <p>Recipify, a Django app.</p>
+    </footer>
+  </body>
+</html>
