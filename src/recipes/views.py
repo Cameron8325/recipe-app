@@ -1,9 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
 from .models import Recipe
-from .forms import SearchForm
+from .forms import SearchForm, RecipeForm
 from django.db.models import Q
 import io
 import matplotlib.pyplot as plt
@@ -137,3 +137,15 @@ def search_results(request):
     html = render_to_string("recipes/search_results.html", context)
 
     return HttpResponse(html)
+
+@login_required
+def add_recipe(request):
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('recipes:home')
+    else:
+        form = RecipeForm()
+
+    return render(request, 'recipes/add_recipe.html', {'form': form})
