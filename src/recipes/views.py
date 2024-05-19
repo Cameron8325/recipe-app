@@ -32,7 +32,23 @@ class RecipeListView(LoginRequiredMixin, ListView):
 @login_required
 def recipe_detail(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
-    return render(request, "recipes/recipe_detail.html", {"recipe": recipe})
+
+    recipes = list(Recipe.objects.all().order_by('id'))
+    current_index = next(index for (index, d) in enumerate(recipes) if d.id == recipe_id)
+
+    next_index = (current_index + 1) % len(recipes)
+    prev_index = (current_index - 1) % len(recipes)
+
+    next_recipe_id = recipes[next_index].id
+    prev_recipe_id = recipes[prev_index].id
+
+    context = {
+        'recipe': recipe,
+        'next_recipe_id': next_recipe_id,
+        'prev_recipe_id': prev_recipe_id
+    }
+
+    return render(request, "recipes/recipe_detail.html", context)
 
 
 @login_required
