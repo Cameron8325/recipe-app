@@ -15,7 +15,7 @@ SECRET_KEY = os.environ.get(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "frozen-river-49992-8fdfadf5baa0.herokuapp.com"]
 
