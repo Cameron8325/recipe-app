@@ -162,5 +162,3 @@ cython_debug/
 #Text backup files
 *.bak
 
-#Database stuff
-*.sqlite3

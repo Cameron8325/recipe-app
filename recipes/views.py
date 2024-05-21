@@ -12,8 +12,10 @@ from django.http import HttpResponse
 from django.template.loader import render_to_string
 import base64
 
+
 def welcome(request):
     return render(request, "recipes/welcome.html")
+
 
 @login_required
 def home(request):
@@ -33,8 +35,10 @@ class RecipeListView(LoginRequiredMixin, ListView):
 def recipe_detail(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
 
-    recipes = list(Recipe.objects.all().order_by('id'))
-    current_index = next(index for (index, d) in enumerate(recipes) if d.id == recipe_id)
+    recipes = list(Recipe.objects.all().order_by("id"))
+    current_index = next(
+        index for (index, d) in enumerate(recipes) if d.id == recipe_id
+    )
 
     next_index = (current_index + 1) % len(recipes)
     prev_index = (current_index - 1) % len(recipes)
@@ -43,9 +47,9 @@ def recipe_detail(request, recipe_id):
     prev_recipe_id = recipes[prev_index].id
 
     context = {
-        'recipe': recipe,
-        'next_recipe_id': next_recipe_id,
-        'prev_recipe_id': prev_recipe_id
+        "recipe": recipe,
+        "next_recipe_id": next_recipe_id,
+        "prev_recipe_id": prev_recipe_id,
     }
 
     return render(request, "recipes/recipe_detail.html", context)
@@ -138,18 +142,20 @@ def search_results(request):
 
     return HttpResponse(html)
 
+
 @login_required
 def add_recipe(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('recipes:home')
+            return redirect("recipes:home")
     else:
         form = RecipeForm()
 
-    return render(request, 'recipes/add_recipe.html', {'form': form})
+    return render(request, "recipes/add_recipe.html", {"form": form})
+
 
 @login_required
 def about(request):
-    return render(request, 'recipes/about.html')
+    return render(request, "recipes/about.html")

@@ -6,7 +6,8 @@ from django.contrib.auth import logout
 
 
 def root_redirect(request):
-    return redirect('recipes:welcome')
+    return redirect("recipes:welcome")
+
 
 def logout_view(request):
     logout(request)
