@@ -552,7 +552,7 @@ form button.login-btn:hover {
 }
 
 .content-container h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
