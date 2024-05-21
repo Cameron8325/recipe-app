@@ -1,44 +1,44 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login to Recipify</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
     <header>
-        <div class="header-container">
-            <h1>Recipify</h1>
-        </div>
+      <div class="header-container">
+        <h1>Recipify</h1>
+      </div>
     </header>
 
     <main>
-        <div class="login-container">
-            <h1>Login</h1>
-            
-            {% if error_message %}
-            <p class="error-message">{{ error_message }}</p>
-            {% endif %}
-            
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
+      <div class="login-container">
+        <h1>Login</h1>
 
-                <button type="submit" class="login-btn">Login</button>
-            </form>
-            <small>If you are a prospective employer, check the console!</small>
-        </div>
+        {% if error_message %}
+        <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+
+        <form action="" method="POST">
+          {% csrf_token %} {{ form.as_p }}
+
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+        <small>If you are a prospective employer, check the console!</small>
+      </div>
     </main>
 
     <footer>
-        <p>Recipify, a Django app.</p>
+      <p>Recipify, a Django app.</p>
     </footer>
 
     <script>
-        console.log("Username: Username123")
-        console.log("Password: @BCD12345")
+      console.log(
+        "Hello! From what I've gathered, anything you make post production will be deleted after a time due to Heroku's filing system. That being said, I can't leave my super user credentials here. Please return to my resume and check out the Contact Me section. We can schedule a temporary account for you to use or discuss my place in your project!"
+      );
     </script>
-</body>
+  </body>
 </html>
