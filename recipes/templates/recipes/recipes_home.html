@@ -16,6 +16,7 @@
           <!-- Hamburger icon -->
         </div>
       </div>
+    </header>
       <nav>
         <ul class="nav-links">
           <li><a href="{% url 'recipes:home' %}">Home</a></li>
@@ -25,7 +26,6 @@
           <li><a href="{% url 'logout' %}">Logout</a></li>
         </ul>
       </nav>
-    </header>
 
     <div class="search-container">
       <form method="GET" action="{% url 'recipes:search_results' %}">

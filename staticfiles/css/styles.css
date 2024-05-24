@@ -56,6 +56,7 @@ nav ul {
   list-style: none;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 nav ul li {
@@ -586,12 +587,6 @@ form button.login-btn:hover {
 
 .login-btn:hover {
   background-color: #45a049;
-}
-
-
-
-.spacer {
-  flex-grow: 1; /* Take up remaining space */
 }
 
 .hamburger-menu {
