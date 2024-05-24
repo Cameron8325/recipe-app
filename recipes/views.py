@@ -145,13 +145,10 @@ def search_results(request):
 
 @login_required
 def add_recipe(request):
-    if request.method == "POST":
-        form = RecipeForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect("recipes:home")
-    else:
-        form = RecipeForm()
+    form = RecipeForm(request.POST or None, request.FILES or None)
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        return redirect("recipes:recipes_list")
 
     return render(request, "recipes/add_recipe.html", {"form": form})
 

@@ -29,6 +29,16 @@ header, nav, footer {
   align-items: center;
 }
 
+.spacer {
+  flex-grow: 1; /* Take up remaining space */
+}
+
+.hamburger-menu {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
 header h1 {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
@@ -576,6 +586,68 @@ form button.login-btn:hover {
 
 .login-btn:hover {
   background-color: #45a049;
+}
+
+
+
+.spacer {
+  flex-grow: 1; /* Take up remaining space */
+}
+
+.hamburger-menu {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .header-container {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between; /* Ensure proper spacing */
+  }
+
+  nav {
+    width: 100%;
+    padding: 0; /* Remove unnecessary padding */
+  }
+  
+  nav ul {
+    display: none; /* Hide the nav links */
+    flex-direction: column;
+    width: 100%;
+    align-items: center; /* Center the nav items */
+  }
+  
+  nav ul.active {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0; /* Remove top margin to eliminate unnecessary space */
+  }
+  
+  nav ul li {
+    margin-right: 0;
+    width: 100%;
+    text-align: center; /* Center the text */
+    border-bottom: 1px solid #444;
+  }
+  
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+  
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+  }
+  
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu */
+    font-size: 30px;
+    cursor: pointer;
+  }
 }
 
 /* Footer */
